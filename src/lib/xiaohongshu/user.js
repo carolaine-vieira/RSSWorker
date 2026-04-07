@@ -19,9 +19,9 @@ let getUser = async (url) => {
 		.transform(res);
 	await rewriter.text();
 	let script = scripts.find((script) => script.startsWith('window.__INITIAL_STATE__='));
-	script = script.slice('window.__INITIAL_STATE__='.length);
+	script = script?.slice('window.__INITIAL_STATE__='.length);
 	// replace undefined to null
-	script = script.replace(/undefined/g, 'null');
+	script = script?.replace(/undefined/g, 'null');
 	let state = JSON.parse(script);
 	return state.user;
 };
