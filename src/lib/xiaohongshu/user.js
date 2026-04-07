@@ -3,8 +3,8 @@ import { renderRss2 } from '../../utils/util';
 let getUser = async (url) => {
 	let res = await fetch(url, {
 		headers: {
-			"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-		}
+			'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+		},
 	});
 	let scripts = [];
 	let rewriter = new HTMLRewriter()
@@ -52,7 +52,7 @@ let deal = async (ctx) => {
 				description: `<img src ="${noteCard.cover.infoList.pop().url}"><br>${noteCard.displayTitle}`,
 				author: noteCard.user.nickname,
 				upvotes: noteCard.interactInfo.likedCount,
-			}))
+			})),
 		);
 	const renderCollect = (collect) => {
 		if (!collect) {
@@ -68,7 +68,7 @@ let deal = async (ctx) => {
 			title: item.display_title,
 			link: `${url}/${item.note_id}`,
 			description: `<img src ="${item.cover.info_list.pop().url}"><br>${item.display_title}`,
-			author: item.user.nickname,
+			// author: item.user.nickname,
 			upvotes: item.interact_info.likedCount,
 		}));
 	};
@@ -81,7 +81,7 @@ let deal = async (ctx) => {
 			image,
 			link: url,
 			items: category === 'notes' ? renderNote(notes) : renderCollect(collect),
-		})
+		}),
 	);
 };
 
