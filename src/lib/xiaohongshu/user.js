@@ -39,7 +39,7 @@ let deal = async (ctx) => {
 		collect,
 	} = await getUser(url);
 
-	const title = `${basicInfo.nickname} - ${category === 'notes' ? '笔记' : '收藏'} • 小红书 / RED`;
+	const title = `${category === 'notes' ? '笔记' : '收藏'} • 小红书 / RED`;
 	const description = `${basicInfo.desc} ${tags.map((t) => t.name).join(' ')} ${interactions.map((i) => `${i.count} ${i.name}`).join(' ')}`;
 	const image = basicInfo.imageb || basicInfo.images;
 
@@ -50,7 +50,7 @@ let deal = async (ctx) => {
 				link: `${url}/${noteCard.noteId}`,
 				guid: noteCard.displayTitle,
 				description: `<img src ="${noteCard.cover.infoList.pop().url}"><br>${noteCard.displayTitle}`,
-				author: noteCard.user.nickname,
+				// author: noteCard.user.nickname,
 				upvotes: noteCard.interactInfo.likedCount,
 			})),
 		);
