@@ -39,8 +39,8 @@ let deal = async (ctx) => {
 		collect,
 	} = await getUser(url);
 
-	const title = `${basicInfo.nickname} - ${category === 'notes' ? '笔记' : '收藏'} • 小红书 / RED`;
-	const description = `${basicInfo.desc} ${tags.map((t) => t.name).join(' ')} ${interactions.map((i) => `${i.count} ${i.name}`).join(' ')}`;
+	const title = `${basicInfo.nickname}`;
+	const description = `${basicInfo.desc} | ${interactions.map((i) => `${i.count} ${i.name}`).join(' ')}`;
 	const image = basicInfo.imageb || basicInfo.images;
 
 	const renderNote = (notes) =>
